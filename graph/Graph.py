@@ -18,6 +18,18 @@ class Graph:
                     visited.append(adjacentVertex)
                     queue.append(adjacentVertex)
 
+    def depthFirstSearch(self, vertex):
+        visited = [vertex]
+        stack = [vertex]
+        while stack:
+            popVertex = stack.pop()
+            print(popVertex)
+            for adjacentVertex in self.graph[popVertex]:
+                if adjacentVertex not in visited:
+                    visited.append(adjacentVertex)
+                    stack.append(adjacentVertex)
+            
+
 
 customGraph = {
     'a': ['b', 'c'],
@@ -29,6 +41,7 @@ customGraph = {
 }
 
 graph = Graph(customGraph)
-graph.breadthFirstSearch('a')
+# graph.breadthFirstSearch('a')
+graph.depthFirstSearch('a')
 
     
